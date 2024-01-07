@@ -177,9 +177,11 @@ addOnUISdk.ready.then(async () => {
   updateColorPreview(foregroundInput.value, backgroundInput.value)
   getContrastResults(foregroundInput.value, backgroundInput.value)
 
-  foregroundColorSwatch.addEventListener('click', function () {
+  foregroundColorSwatch.addEventListener('click', function (event) {
     foregroundColorPicker.click()
+    foregroundColorSwatch.setAttribute('selected', true) // show foreground color swatch as selected
   })
+
   // Update foreground color swatch value and compute contrast when the foreground color picker changes
   foregroundColorPicker.addEventListener('input', function (event) {
     const selectedColor = event.target.value
@@ -190,8 +192,25 @@ addOnUISdk.ready.then(async () => {
     getContrastResults(foregroundInput.value, backgroundInput.value)
   })
 
-  backgroundColorSwatch.addEventListener('click', function () {
+  backgroundColorSwatch.addEventListener('click', function (event) {
     backgroundColorPicker.click()
+    backgroundColorSwatch.setAttribute('selected', true) // show background color swatch as selected
+  })
+
+  // If applicable, remove selected state from color swatches if elements outside of the color swatches are clicked
+  document.addEventListener('click', function (event) {
+    if (!foregroundColorSwatch.contains(event.target)) {
+      // The foreground color swatch should not have a visually selected state if the click originates outside of the foreground color swatch
+      if (foregroundColorSwatch.hasAttribute('selected')) {
+        foregroundColorSwatch.removeAttribute('selected')
+      }
+    }
+    if (!backgroundColorSwatch.contains(event.target)) {
+      // The background color swatch should not have a visually selected state if the click originates outside of the foreground color swatch
+      if (backgroundColorSwatch.hasAttribute('selected')) {
+        backgroundColorSwatch.removeAttribute('selected')
+      }
+    }
   })
 
   // Update background color swatch value and compute contrast when the background color picker changes
