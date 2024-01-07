@@ -39,6 +39,22 @@ function formatHexInput (userInput) {
   return userInput
 }
 
+// Handle shorthand notation so that the color picker value is valid
+function getFullHexCode (hexCode) {
+  // Remove leading #
+  hexCode = hexCode.replace(/^#/, '')
+  if (hexCode.length === 3) {
+    hexCode =
+      hexCode[0] +
+      hexCode[0] +
+      hexCode[1] +
+      hexCode[1] +
+      hexCode[2] +
+      hexCode[2]
+  }
+  return '#' + hexCode
+}
+
 // Takes two hex codes and returns the contrast between the two colors
 function computeContrast (foregroundColor, backgroundColor) {
   const contrastRatio = colorContrast(foregroundColor, backgroundColor)
@@ -230,8 +246,9 @@ addOnUISdk.ready.then(async () => {
     event.target.value = formattedHexCode
     if (isValidHexCode(formattedHexCode)) {
       removeErrorMessage(backgroundErrorMessage)
-      backgroundColorSwatch.setAttribute('color', formattedHexCode)
-      backgroundColorPicker.value = formattedHexCode
+      const fullHexCode = getFullHexCode(formattedHexCode) // get formatted six character hex code with leading #, address any shorthand notation
+      backgroundColorSwatch.setAttribute('color', fullHexCode)
+      backgroundColorPicker.value = fullHexCode
       updateColorPreview(foregroundInput.value, backgroundInput.value)
       getContrastResults(foregroundInput.value, backgroundInput.value)
     } else {
@@ -246,8 +263,9 @@ addOnUISdk.ready.then(async () => {
     event.target.value = formattedHexCode
     if (isValidHexCode(formattedHexCode)) {
       removeErrorMessage(foregroundErrorMessage)
-      foregroundColorSwatch.setAttribute('color', formattedHexCode)
-      foregroundColorPicker.value = formattedHexCode
+      const fullHexCode = getFullHexCode(formattedHexCode) // get formatted six character hex code with leading #, address any shorthand notation
+      foregroundColorSwatch.setAttribute('color', fullHexCode)
+      foregroundColorPicker.value = fullHexCode
       updateColorPreview(foregroundInput.value, backgroundInput.value)
       getContrastResults(foregroundInput.value, backgroundInput.value)
     } else {
