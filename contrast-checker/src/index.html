@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Adobe Express Add-on tutorial using JavaScript and the Authoring Sandbox" />
+    <meta name="keywords" content="Adobe, Express, Add-On, JavaScript, Authoring Sandbox, Adobe Express Document API" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contrast Checker Add-On</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <sp-theme scale="medium" color="light" theme="express">
+        <h2>Contrast Checker</h2>
+        <div class="row gap-20">
+            <div class="row">
+                <div class="column">
+                    <sp-field-label for="foreground" size="m">Foreground</sp-field-label>
+                    <sp-textfield id="foreground"></sp-textfield>
+                </div>
+                <sp-swatch id="foregroundColorSwatch" class="color-well"></sp-swatch>
+                <input type="color" id="foregroundColorPicker" style="display: none;">
+            </div>
+            <div class="row">
+                <div class="column">
+                    <sp-field-label for="background" size="m">Background</sp-field-label>
+                    <sp-textfield id="background"></sp-textfield>
+                </div>
+                <sp-swatch id="backgroundColorSwatch" class="color-well"></sp-swatch>
+                <input type="color" id="backgroundColorPicker" style="display: none;">
+            </div>
+        </div>
+        <div class="row gap-20">
+            <div class="row">
+                <div class="column">
+                    <div id="foregroundErrorMessage"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div id="backgroundErrorMessage"></div>
+                </div>
+            </div>
+        </div>
+        <div id="resultsHeader" style="display: flex; align-items: center">
+            <h3 style="display: inline; margin-right: 2pt;">Results</h3>
+            <sp-action-button size="s" style="display: inline; background-color: transparent; padding: 0pt; position: relative;">
+                <sp-icon-help-outline style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></sp-icon-help-outline>
+                <sp-tooltip self-managed placement="right">
+                    <p>Regular text is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight. Large text is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight. </p>
+                    <p>For WCAG AA (minimum level) compliance, there should be a contrast ratio of at least 4.5:1 for regular text and 3:1 for large text. Achieving WCAG AAA (enhanced level) standards involves a contrast ratio of at least 7:1 is required for regular text, while large text should maintain a minimum contrast ratio of 4.5:1.</p>
+                </sp-tooltip>
+            </sp-action-button>
+            
+        </div>
+        
+        <div class="row">
+            <p>Contrast ratio: <span id="contrastRatio"></span></p>
+        </div>
+        <h4>WCAG AA</h4>
+        <div class="row">
+            <p class="result-line"><span class="content-type-label">Regular Text: </span><span id="aaRegular" class="result"></span></p>
+        </div>
+        <div class="row">
+            <p class="result-line"><span class="content-type-label">Large Text: </span><span id="aaLarge" class="result"></span></p>
+        </div>
+        <h4>WCAG AAA</h4>
+        <div class="row">
+            <p class="result-line"><span class="content-type-label">Regular Text:</span> <span id="aaaRegular" class="result"></span></p>
+        </div>
+        <div class="row">
+            <p class="result-line"><span class="content-type-label">Large Text:</span> <span id="aaaLarge" class="result"></span></p>
+        </div>
+        <h3>Preview</h3>
+        <div class="row">
+            <div id="colorPreview">
+                <p class="large-text-normal">Sample large text (18 pt, normal weight)</p>
+                <p class="large-text-bold">Sample large text (14 pt, bold weight)</p>
+                <p class="regular-text-normal">Sample regular text (14 pt, normal weight)</p>
+                <p class="regular-text-bold">Sample regular text (12 pt, bold weight)</p>
+            </div>
+        </div>
+        <h3>Why is contrast important?</h3>
+        <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about <sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+       
+    </sp-theme>
+</body>
+
+</html>

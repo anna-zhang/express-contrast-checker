@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+sp-theme {
+  margin: 0 24px;
+  display: grid;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.gutter-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: flex-start;
+  border: 1px solid black;
+  margin-bottom: 12px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+  width: 80px;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+sp-swatch {
+  width: 32px;
+}
+
+.color-well {
+  cursor: pointer;
+  --mod-swatch-border-thickness: var(--spectrum-divider-thickness-small);
+  --mod-swatch-border-color: var(--spectrum-transparent-black-500);
+}
+
+sp-button {
+  flex: 1;
+  max-width: calc((100% - 20px) / 2);
+}
+
+sp-number-field,
+sp-slider {
+  width: 100%;
+}
+
+sp-button-group {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+sp-textfield {
+  width: 100%;
+}
+
+/* Color preview */
+.large-text-normal {
+  font-size: 18pt;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.large-text-bold {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.regular-text-normal {
+  font-size: 14pt;
+  font-weight: normal;
+}
+
+.regular-text-bold {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#colorPreview {
+  padding: 20pt;
+}
+
+
+/* Contrast results PASS/FAIL */
+.content-type-label {
+  margin-right: 2pt;
+}
+
+.result-line {
+  display: flex; 
+  align-items: center;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
