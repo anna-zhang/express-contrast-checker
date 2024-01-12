@@ -31,11 +31,11 @@
         "@spectrum-web-components/button": "^0.39.1",
         "@spectrum-web-components/button-group": "^0.39.1",
         "@spectrum-web-components/field-label": "^0.39.1",
-        "@spectrum-web-components/link": "^0.40.2",
+        "@spectrum-web-components/link": "^0.39.1",
         "@spectrum-web-components/number-field": "^0.39.1",
         "@spectrum-web-components/swatch": "^0.39.1",
         "@spectrum-web-components/theme": "^0.39.1",
-        "@spectrum-web-components/tooltip": "^0.40.2",
+        "@spectrum-web-components/tooltip": "^0.39.1",
         "color-contrast": "^1.0.0"
     }
 }
