@@ -43,46 +43,57 @@
                 </div>
             </div>
         </div>
-        <div id="resultsHeader" style="display: flex; align-items: center">
-            <h3 style="display: inline; margin-right: 2pt;">Results</h3>
-            <sp-action-button size="s" style="display: inline; background-color: transparent; padding: 0pt; position: relative;">
-                <sp-icon-help-outline style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></sp-icon-help-outline>
-                <sp-tooltip self-managed placement="right">
-                    <p>Regular text is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight. Large text is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight. </p>
-                    <p>For WCAG AA (minimum level) compliance, there should be a contrast ratio of at least 4.5:1 for regular text and 3:1 for large text. Achieving WCAG AAA (enhanced level) standards involves a contrast ratio of at least 7:1 is required for regular text, while large text should maintain a minimum contrast ratio of 4.5:1.</p>
-                </sp-tooltip>
-            </sp-action-button>
-            
-        </div>
-        
-        <div class="row">
-            <p>Contrast ratio: <span id="contrastRatio"></span></p>
-        </div>
-        <h4>WCAG AA</h4>
-        <div class="row">
-            <p class="result-line"><span class="content-type-label">Regular Text: </span><span id="aaRegular" class="result"></span></p>
-        </div>
-        <div class="row">
-            <p class="result-line"><span class="content-type-label">Large Text: </span><span id="aaLarge" class="result"></span></p>
-        </div>
-        <h4>WCAG AAA</h4>
-        <div class="row">
-            <p class="result-line"><span class="content-type-label">Regular Text:</span> <span id="aaaRegular" class="result"></span></p>
-        </div>
-        <div class="row">
-            <p class="result-line"><span class="content-type-label">Large Text:</span> <span id="aaaLarge" class="result"></span></p>
-        </div>
-        <h3>Preview</h3>
-        <div class="row">
-            <div id="colorPreview">
-                <p class="large-text-normal">Sample large text (18 pt, normal weight)</p>
-                <p class="large-text-bold">Sample large text (14 pt, bold weight)</p>
-                <p class="regular-text-normal">Sample regular text (14 pt, normal weight)</p>
-                <p class="regular-text-bold">Sample regular text (12 pt, bold weight)</p>
-            </div>
-        </div>
-        <h3>Why is contrast important?</h3>
-        <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about <sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+        <br>
+        <sp-accordion allow-multiple size="m">
+            <sp-accordion-item label="Results" open>
+                <div id="contrastRatioResult">
+                    <p>
+                        <span id="contrastRatio"></span>
+                        <br>
+                        contrast ratio
+                    </p>
+                    <div id="resultsTable">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th></th> <!-- Empty cell for the top-left corner -->
+                                <th>AA</th>
+                                <th>AAA</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>Regular Text</th>
+                                <td><span id="aaRegular" class="result"></span></td>
+                                <td><span id="aaaRegular" class="result"></span></td>
+                            </tr>
+                            <tr>
+                                <th>Large Text</th>
+                                <td><span id="aaLarge" class="result"></span></td>
+                                <td><span id="aaaLarge" class="result"></span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </sp-accordion-item>
+
+            <sp-accordion-item label="Preview" open>
+                <div id="colorPreview">
+                    <p class="large-text-normal">Sample large text (18 pt, normal weight)</p>
+                    <p class="large-text-bold">Sample large text (14 pt, bold weight)</p>
+                    <p class="regular-text-normal">Sample regular text (14 pt, normal weight)</p>
+                    <p class="regular-text-bold">Sample regular text (12 pt, bold weight)</p>
+                </div>
+            </sp-accordion-item>
+            <sp-accordion-item label="How are results computed?">
+                <p>Regular text is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight. Large text is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight. </p>
+                <p>For WCAG AA (minimum level) compliance, there should be a contrast ratio of at least 4.5:1 for regular text and 3:1 for large text. Achieving WCAG AAA (enhanced level) standards involves a contrast ratio of at least 7:1 is required for regular text, while large text should maintain a minimum contrast ratio of 4.5:1.</p>
+            </sp-accordion-item>
+            <sp-accordion-item label="Why is contrast important?">
+                <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about <sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+            </sp-accordion-item>
+        </sp-accordion>
        
     </sp-theme>
 </body>

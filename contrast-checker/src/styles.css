@@ -102,13 +102,22 @@ sp-textfield {
 
 
 /* Contrast results PASS/FAIL */
-.content-type-label {
-  margin-right: 2pt;
+#contrastRatio {
+  font-size: 1.8em;
+  font-weight: bold;
 }
 
-.result-line {
-  display: flex; 
-  align-items: center;
+#contrastRatioResult {
+  text-align: center;
+}
+
+p {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+td {
+  text-align: center;
 }
 
 .result {
@@ -117,7 +126,17 @@ sp-textfield {
   align-items: center;
 }
 
-p {
-  margin-block-start: 0.5em;
-  margin-block-end: 0.5em;
+#resultsTable {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 14px; /* adjust the spacing between cells */
+}
+
+sp-icon-checkmark-circle-outline, sp-icon-cancel {
+  margin: 6px;
 }
