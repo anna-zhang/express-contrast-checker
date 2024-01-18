@@ -112,6 +112,14 @@ function getContrastResults (foregroundColor, backgroundColor) {
   // AAA Large Text test
   const aaaLargeResult = document.getElementById('aaaLarge')
   getContrastDisplay(contrastRatio, 4.5, aaaLargeResult) // passes AAA Large Text if contrast ratio is 4.5:1 or greater
+
+  // AA Graphical Objects test
+  const aaGraphical = document.getElementById('aaGraphical')
+  getContrastDisplay(contrastRatio, 3, aaGraphical) // passes AA Graphical Objects if contrast ratio is 3:1 or greater
+
+  // AAA Graphical Objects test
+  const aaaGraphical = document.getElementById('aaaGraphical')
+  getContrastDisplay(contrastRatio, 3, aaaGraphical) // no AAA Graphical Objects standard, so if it passes AA Graphical Objects (contrast ratio is 3:1 or greater) then it passes
 }
 
 // Update colors shown in the preview
