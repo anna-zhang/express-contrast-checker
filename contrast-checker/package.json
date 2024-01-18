@@ -6,7 +6,7 @@
         "clean": "ccweb-add-on-scripts clean",
         "build": "ccweb-add-on-scripts build --use webpack",
         "start": "ccweb-add-on-scripts start --use webpack",
-        "package": "ccweb-add-on-scripts package"
+        "package": "ccweb-add-on-scripts package --use webpack"
     },
     "keywords": [
         "Adobe",
