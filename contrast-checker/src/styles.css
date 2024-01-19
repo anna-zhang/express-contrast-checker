@@ -93,11 +93,18 @@ sp-textfield {
 .regular-text-bold {
   font-size: 12pt;
   font-weight: bold;
-  margin-bottom: 0;
 }
 
 #colorPreview {
   padding: 20pt;
+}
+
+#graphicalObjects {
+  text-align: center;
+}
+
+.graphical-icon {
+  padding: 8pt;
 }
 
 

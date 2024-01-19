@@ -14,6 +14,9 @@ import '@spectrum-web-components/help-text/sp-help-text.js'
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-help-outline.js'
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-checkmark-circle-outline.js'
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-cancel.js'
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-graph-trend.js'
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-graph-pie.js'
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-graph-bar-vertical'
 import '@spectrum-web-components/link/sp-link.js'
 import '@spectrum-web-components/accordion/sp-accordion.js'
 import '@spectrum-web-components/accordion/sp-accordion-item.js'
@@ -131,6 +134,14 @@ function updateColorPreview (foregroundColor, backgroundColor) {
   // Set the text color for each paragraph
   text.forEach(function (text) {
     text.style.color = foregroundColor
+  })
+
+  // Get all icons within the preview div container
+  var icons = document.querySelectorAll('#colorPreview .graphical-icon')
+
+  // Set the text color for each paragraph
+  icons.forEach(function (icon) {
+    icon.style.color = foregroundColor
   })
 
   // Update background color in preview
