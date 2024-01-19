@@ -95,8 +95,9 @@ sp-textfield {
   font-weight: bold;
 }
 
-#colorPreview {
-  padding: 20pt;
+.bg-container {
+  padding: 16pt;
+  margin-bottom: 16pt;
 }
 
 #graphicalObjects {
@@ -105,6 +106,11 @@ sp-textfield {
 
 .graphical-icon {
   padding: 8pt;
+}
+
+.preview-heading {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
 

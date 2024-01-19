@@ -139,7 +139,7 @@ function updateColorPreview (foregroundColor, backgroundColor) {
   // Get all icons within the preview div container
   var icons = document.querySelectorAll('#colorPreview .graphical-icon')
 
-  // Set the text color for each paragraph
+  // Set the color for each icon
   icons.forEach(function (icon) {
     icon.style.color = foregroundColor
   })
@@ -148,8 +148,15 @@ function updateColorPreview (foregroundColor, backgroundColor) {
   // Get the container element
   var previewContainer = document.getElementById('colorPreview')
 
-  // Set the background color for the preview div container
-  previewContainer.style.backgroundColor = backgroundColor
+  // Get all background color containers within the preview div container
+  var backgroundContainers = document.querySelectorAll(
+    '#colorPreview .bg-container'
+  )
+
+  // Set the background color for each preview container
+  backgroundContainers.forEach(function (container) {
+    container.style.backgroundColor = backgroundColor
+  })
 }
 
 // Add the message to the container for an error
