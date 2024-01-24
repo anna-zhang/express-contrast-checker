@@ -12,106 +12,116 @@
 
 <body>
     <sp-theme scale="medium" color="light" theme="express">
-        <h2>Contrast Checker</h2>
-        <div class="row gap-20">
-            <div class="row">
-                <div class="column">
-                    <sp-field-label for="foreground" size="m">Foreground</sp-field-label>
-                    <sp-textfield id="foreground"></sp-textfield>
+        <div class="section">
+            <h2>Contrast Checker</h2>
+            <div class="row gap-20">
+                <div class="row">
+                    <div class="column">
+                        <sp-field-label for="foreground" size="m">Foreground</sp-field-label>
+                        <sp-textfield id="foreground"></sp-textfield>
+                    </div>
+                    <sp-swatch id="foregroundColorSwatch" class="color-well"></sp-swatch>
+                    <input type="color" id="foregroundColorPicker" style="display: none;">
                 </div>
-                <sp-swatch id="foregroundColorSwatch" class="color-well"></sp-swatch>
-                <input type="color" id="foregroundColorPicker" style="display: none;">
-            </div>
-            <div class="row">
-                <div class="column">
-                    <sp-field-label for="background" size="m">Background</sp-field-label>
-                    <sp-textfield id="background"></sp-textfield>
+                <div class="row">
+                    <div class="column">
+                        <sp-field-label for="background" size="m">Background</sp-field-label>
+                        <sp-textfield id="background"></sp-textfield>
+                    </div>
+                    <sp-swatch id="backgroundColorSwatch" class="color-well"></sp-swatch>
+                    <input type="color" id="backgroundColorPicker" style="display: none;">
                 </div>
-                <sp-swatch id="backgroundColorSwatch" class="color-well"></sp-swatch>
-                <input type="color" id="backgroundColorPicker" style="display: none;">
             </div>
+            <div class="row gap-20">
+                <div class="row">
+                    <div class="column">
+                        <div id="foregroundErrorMessage"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div id="backgroundErrorMessage"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
-        <div class="row gap-20">
-            <div class="row">
-                <div class="column">
-                    <div id="foregroundErrorMessage"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div id="backgroundErrorMessage"></div>
-                </div>
-            </div>
-        </div>
-        <br>
         <sp-accordion allow-multiple size="m">
             <sp-accordion-item label="Results" open>
-                <div id="contrastRatioResult">
-                    <p>
-                        <span id="contrastRatio"></span>
-                        <br>
-                        contrast ratio
-                    </p>
-                    <div id="resultsTable">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th></th> <!-- Empty cell for the top-left corner -->
-                                <th>AA</th>
-                                <th>AAA</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th>Regular Text</th>
-                                <td><span id="aaRegular" class="result"></span></td>
-                                <td><span id="aaaRegular" class="result"></span></td>
-                            </tr>
-                            <tr>
-                                <th>Large Text</th>
-                                <td><span id="aaLarge" class="result"></span></td>
-                                <td><span id="aaaLarge" class="result"></span></td>
-                            </tr>
-                            <tr>
-                                <th>Graphical Objects</th>
-                                <td><span id="aaGraphical" class="result"></span></td>
-                                <td><span id="aaaGraphical" class="result"></span></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <div class="section">
+                    <div id="contrastRatioResult">
+                        <p>
+                            <span id="contrastRatio"></span>
+                            <br>
+                            contrast ratio
+                        </p>
+                        <div id="resultsTable">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th></th> <!-- Empty cell for the top-left corner -->
+                                    <th>AA</th>
+                                    <th>AAA</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>Regular Text</th>
+                                    <td><span id="aaRegular" class="result"></span></td>
+                                    <td><span id="aaaRegular" class="result"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Large Text</th>
+                                    <td><span id="aaLarge" class="result"></span></td>
+                                    <td><span id="aaaLarge" class="result"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Graphical Objects</th>
+                                    <td><span id="aaGraphical" class="result"></span></td>
+                                    <td><span id="aaaGraphical" class="result"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </sp-accordion-item>
 
             <sp-accordion-item label="Preview" open>
-                <div id="colorPreview">
-                    <h4 class="preview-heading">Large Text</h4>
-                    <div class="bg-container">
-                        <p class="large-text-normal">Sample large text (18 pt, normal weight)</p>
-                        <p class="large-text-bold">Sample large text (14 pt, bold weight)</p>
-                    </div>
-                    <h4 class="preview-heading">Regular Text</h4>
-                    <div class="bg-container">
-                        <p class="regular-text-normal">Sample regular text (14 pt, normal weight)</p>
-                        <p class="regular-text-bold">Sample regular text (12 pt, bold weight)</p>
-                    </div>
-                    <h4 class="preview-heading">Graphical Objects</h4>
-                    <div id="graphicalObjects" class="bg-container">
-                        <sp-icon-graph-bar-vertical class="graphical-icon" size="xxl"></sp-icon-graph-bar-vertical>
-                        <sp-icon-graph-pie class="graphical-icon" size="xxl"></sp-icon-graph-pie>
-                        <sp-icon-graph-trend class="graphical-icon" size="xxl"></sp-icon-graph-trend>
+                <div class="section">
+                    <div id="colorPreview">
+                        <h4 class="preview-heading">Large Text</h4>
+                        <div class="bg-container">
+                            <p class="large-text-normal">Sample large text (18 pt, normal weight)</p>
+                            <p class="large-text-bold">Sample large text (14 pt, bold weight)</p>
+                        </div>
+                        <h4 class="preview-heading">Regular Text</h4>
+                        <div class="bg-container">
+                            <p class="regular-text-normal">Sample regular text (14 pt, normal weight)</p>
+                            <p class="regular-text-bold">Sample regular text (12 pt, bold weight)</p>
+                        </div>
+                        <h4 class="preview-heading">Graphical Objects</h4>
+                        <div id="graphicalObjects" class="bg-container">
+                            <sp-icon-graph-bar-vertical class="graphical-icon" size="xxl"></sp-icon-graph-bar-vertical>
+                            <sp-icon-graph-pie class="graphical-icon" size="xxl"></sp-icon-graph-pie>
+                            <sp-icon-graph-trend class="graphical-icon" size="xxl"></sp-icon-graph-trend>
+                        </div>
                     </div>
                 </div>
             </sp-accordion-item>
             <sp-accordion-item label="How are results computed?">
-                <p><b>Regular text</b> is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight.</p>
-                <p><b>Large text</b> is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight.</p>
-                <p><b>Graphical objects</b> include essential icons and other visuals crucial for understanding conveyed information.</p>
-                <p>For <b>WCAG AA</b> (minimum level) compliance, there should be a contrast ratio of at least 4.5:1 for regular text, 3:1 for large text, and 3:1 for graphical objects.</p>
-                <p>Achieving <b>WCAG AAA</b> (enhanced level) standards involves a contrast ratio of at least 7:1 is required for regular text, while large text should maintain a minimum contrast ratio of 4.5:1. There are no specific AAA standards for graphical objects, so if the 3:1 contrast ratio for AA standards is met, the results indicate a passing status.</p>
+                <div class="section">
+                    <p><b>Regular text</b> is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight.</p>
+                    <p><b>Large text</b> is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight.</p>
+                    <p><b>Graphical objects</b> include essential icons and other visuals crucial for understanding conveyed information.</p>
+                    <p>For <b>WCAG AA</b> (minimum level) compliance, there should be a contrast ratio of at least 4.5:1 for regular text, 3:1 for large text, and 3:1 for graphical objects.</p>
+                    <p>Achieving <b>WCAG AAA</b> (enhanced level) standards involves a contrast ratio of at least 7:1 is required for regular text, while large text should maintain a minimum contrast ratio of 4.5:1. There are no specific AAA standards for graphical objects, so if the 3:1 contrast ratio for AA standards is met, the results indicate a passing status.</p>
+                </div>
             </sp-accordion-item>
             <sp-accordion-item label="Why is contrast important?">
-                <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about&nbsp;<sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+                <div class="section">
+                    <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about&nbsp;<sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+                </div>
             </sp-accordion-item>
         </sp-accordion>
        

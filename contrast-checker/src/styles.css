@@ -5,8 +5,11 @@ body {
 }
 
 sp-theme {
-  margin: 0 24px;
   display: grid;
+}
+
+.section {
+  margin: 0 24px;
 }
 
 .row {
