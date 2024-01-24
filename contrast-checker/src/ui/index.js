@@ -213,8 +213,10 @@ addOnUISdk.ready.then(async () => {
 
   // Initialize color picker and swatch values and update the starting color preview and contrast results accordingly
   foregroundColorPicker.value = '#00087a'
+  foregroundColorPicker.style.backgroundColor = '#00087a'
   foregroundColorSwatch.color = '#00087a'
   backgroundColorPicker.value = '#c7e3ea'
+  backgroundColorPicker.style.backgroundColor = backgroundColorPicker.value
   backgroundColorSwatch.color = '#c7e3ea'
   updateColorPreview(foregroundInput.value, backgroundInput.value)
   getContrastResults(foregroundInput.value, backgroundInput.value)
@@ -229,6 +231,7 @@ addOnUISdk.ready.then(async () => {
     const selectedColor = event.target.value
     foregroundColorSwatch.setAttribute('color', selectedColor)
     foregroundInput.value = selectedColor // set hex code in input field
+    foregroundColorPicker.style.backgroundColor = selectedColor // update background color of input field for Safari
     removeErrorMessage(foregroundErrorMessage) // clear error message
     updateColorPreview(foregroundInput.value, backgroundInput.value)
     getContrastResults(foregroundInput.value, backgroundInput.value)
@@ -260,6 +263,7 @@ addOnUISdk.ready.then(async () => {
     const selectedColor = event.target.value
     backgroundColorSwatch.setAttribute('color', selectedColor)
     backgroundInput.value = selectedColor // set hex code in input field
+    backgroundColorPicker.style.backgroundColor = selectedColor // update background color of input field for Safari
     removeErrorMessage(backgroundErrorMessage) // clear error message
     updateColorPreview(foregroundInput.value, backgroundInput.value)
     getContrastResults(foregroundInput.value, backgroundInput.value)
@@ -274,7 +278,8 @@ addOnUISdk.ready.then(async () => {
       removeErrorMessage(backgroundErrorMessage)
       const fullHexCode = getFullHexCode(formattedHexCode) // get formatted six character hex code with leading #, address any shorthand notation
       backgroundColorSwatch.setAttribute('color', fullHexCode)
-      backgroundColorPicker.value = fullHexCode
+      backgroundColorPicker.value = fullHexCode // update background color of input field for Safari
+      backgroundColorPicker.style.backgroundColor = fullHexCode
       updateColorPreview(foregroundInput.value, backgroundInput.value)
       getContrastResults(foregroundInput.value, backgroundInput.value)
     } else {
@@ -292,10 +297,30 @@ addOnUISdk.ready.then(async () => {
       const fullHexCode = getFullHexCode(formattedHexCode) // get formatted six character hex code with leading #, address any shorthand notation
       foregroundColorSwatch.setAttribute('color', fullHexCode)
       foregroundColorPicker.value = fullHexCode
+      foregroundColorPicker.style.backgroundColor = fullHexCode // update background color of input field for Safari
       updateColorPreview(foregroundInput.value, backgroundInput.value)
       getContrastResults(foregroundInput.value, backgroundInput.value)
     } else {
       addErrorMessage(foregroundErrorMessage, 'Please input a valid hex code.')
     }
   })
+})
+
+// Display SWC color swatch if non-Safari browser, or default color picker if browser is Safari
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if the browser is Safari
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
+  // Display default color picker if browser is Safari
+  if (isSafari) {
+    foregroundColorSwatch.style.display = 'none'
+    backgroundColorSwatch.style.display = 'none'
+    foregroundColorPicker.style.display = 'inline-block'
+    backgroundColorPicker.style.display = 'inline-block'
+  } else {
+    foregroundColorSwatch.style.display = 'inline-block'
+    backgroundColorSwatch.style.display = 'inline-block'
+    foregroundColorPicker.style.display = 'none'
+    backgroundColorPicker.style.display = 'none'
+  }
 })

@@ -49,10 +49,22 @@ sp-swatch {
   width: 32px;
 }
 
+/* Make the SWC swatch component match text input styling */
 .color-well {
   cursor: pointer;
-  --mod-swatch-border-thickness: var(--spectrum-divider-thickness-small);
-  --mod-swatch-border-color: var(--spectrum-transparent-black-500);
+  --mod-swatch-border-thickness:var(--mod-textfield-border-width,var(--spectrum-textfield-border-width) );
+  --mod-swatch-border-color: rgb(177, 177, 177);
+}
+
+/* Make the default HTML color input field look similar to the SWC swatch component for Safari */
+.color-swatch {
+  cursor: pointer;
+  border: 2px solid rgb(177, 177, 177);
+  border-radius: 6px;
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
 }
 
 sp-button {
