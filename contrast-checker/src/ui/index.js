@@ -213,11 +213,15 @@ addOnUISdk.ready.then(async () => {
 
   // Initialize color picker and swatch values and update the starting color preview and contrast results accordingly
   foregroundColorPicker.value = '#00087a'
-  foregroundColorPicker.style.backgroundColor = '#00087a'
-  foregroundColorSwatch.color = '#00087a'
+  foregroundColorPicker.style.backgroundColor = foregroundColorPicker.value
+  foregroundColorSwatch.color = foregroundColorPicker.value
   backgroundColorPicker.value = '#c7e3ea'
   backgroundColorPicker.style.backgroundColor = backgroundColorPicker.value
-  backgroundColorSwatch.color = '#c7e3ea'
+  backgroundColorSwatch.color = backgroundColorPicker.value
+  foregroundColorSwatch.style.display = 'inline-block'
+  backgroundColorSwatch.style.display = 'inline-block'
+  foregroundColorPicker.style.display = 'none'
+  backgroundColorPicker.style.display = 'none'
   updateColorPreview(foregroundInput.value, backgroundInput.value)
   getContrastResults(foregroundInput.value, backgroundInput.value)
 
@@ -304,10 +308,8 @@ addOnUISdk.ready.then(async () => {
       addErrorMessage(foregroundErrorMessage, 'Please input a valid hex code.')
     }
   })
-})
 
-// Display SWC color swatch if non-Safari browser, or default color picker if browser is Safari
-document.addEventListener('DOMContentLoaded', function () {
+  // Display SWC color swatch if non-Safari browser, or default color picker if browser is Safari
   // Check if the browser is Safari
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
