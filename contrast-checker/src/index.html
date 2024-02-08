@@ -20,7 +20,7 @@
                         <sp-field-label for="foreground" size="m">Foreground</sp-field-label>
                         <sp-textfield id="foreground"></sp-textfield>
                     </div>
-                    <sp-swatch id="foregroundColorSwatch" class="color-well"></sp-swatch>
+                    <sp-swatch id="foregroundColorSwatch" label="Foreground" class="color-well"></sp-swatch>
                     <input type="color" id="foregroundColorPicker" class="color-swatch" style="display: none">
                 </div>
                 <div class="row">
@@ -28,7 +28,7 @@
                         <sp-field-label for="background" size="m">Background</sp-field-label>
                         <sp-textfield id="background"></sp-textfield>
                     </div>
-                    <sp-swatch id="backgroundColorSwatch" class="color-well"></sp-swatch>
+                    <sp-swatch id="backgroundColorSwatch" label="Background" class="color-well"></sp-swatch>
                     <input type="color" id="backgroundColorPicker" class="color-swatch" style="display: none">
                 </div>
             </div>
@@ -111,6 +111,7 @@
             </sp-accordion-item>
             <sp-accordion-item label="How are results computed?">
                 <div class="section">
+                    <p>The <b>Web Content Accessibility Guidelines (WCAG)</b> are internationally recognized standards designed to make web content more accessible for people with disabilities.</p>
                     <p><b>Regular text</b> is defined as 17 points or smaller for regular font weight and 13 points or smaller for bold font weight.</p>
                     <p><b>Large text</b> is considered 18 points or larger for regular font weight and 14 points or larger for bold font weight.</p>
                     <p><b>Graphical objects</b> include essential icons and other visuals crucial for understanding conveyed information.</p>
@@ -120,7 +121,7 @@
             </sp-accordion-item>
             <sp-accordion-item label="Why is contrast important?">
                 <div class="section">
-                    <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about&nbsp;<sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility</sp-link>.</p>
+                    <p>Contrast is vital in design to make information clear for everyone, including those with visual impairments; it refers to the perceived brightness difference between foreground and background colors. A contrast checker ensures that text and graphics meet WCAG accessibility standards, maintaining legibility, and enhancing inclusivity for diverse audiences. Learn more about&nbsp;<sp-link href="https://webaim.org/articles/contrast/">contrast and color accessibility from WebAIM</sp-link>.</p>
                 </div>
             </sp-accordion-item>
         </sp-accordion>
