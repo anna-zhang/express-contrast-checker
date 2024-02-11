@@ -1,7 +1,7 @@
 {
     "name": "contrast-checker",
     "version": "1.0.0",
-    "description": "Adobe Creative Cloud Web Add-on.",
+    "description": "Contrast Checker Add-on for Express.",
     "scripts": {
         "clean": "ccweb-add-on-scripts clean",
         "build": "ccweb-add-on-scripts build --use webpack",
@@ -10,7 +10,9 @@
     },
     "keywords": [
         "Adobe",
-        "Creative Cloud Web",
+        "Color",
+        "Color Contrast",
+        "Accessibility",
         "Add-on",
         "Adobe Express"
     ],
