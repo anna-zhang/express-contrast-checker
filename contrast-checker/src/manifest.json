@@ -1,7 +1,7 @@
 {
     "testId": "fbf5ddb7-e3eb-4a0a-b7a4-2587ff45bee8",
     "name": "Contrast Checker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "manifestVersion": 2,
     "requirements": {
         "apps": [
@@ -15,7 +15,11 @@
         {
             "type": "panel",
             "id": "panel1",
-            "main": "index.html"
+            "main": "index.html",
+            "permissions": {
+                "sandbox": ["allow-popups", "allow-popups-to-escape-sandbox"]
+            }
+    
         }
     ]
 }
